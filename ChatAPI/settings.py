@@ -31,18 +31,22 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # channels
+    'channels',
+
+    # Default Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # MY APPS
     'chat_api.apps.ChatApiConfig',
     'chat_api.api',
-
-    # channels
-    # 'channels',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,6 +78,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ChatAPI.wsgi.application'
+
+# Channels
+ASGI_APPLICATION = 'ChatAPI.routing.application'
 
 
 # Database
