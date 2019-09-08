@@ -12,12 +12,13 @@
 </body>
 <script>
     var roomName = {{ room_name_json }};
-
+    console.log('test')
     var chatSocket = new WebSocket(
         'ws://' + window.location.host +
         '/ws/chat/' + roomName + '/');
 
     chatSocket.onmessage = function(e) {
+        console.log("onMessage")
         var data = JSON.parse(e.data);
         var message = data['message'];
         document.querySelector('#chat-log').value += (message + '\n');
